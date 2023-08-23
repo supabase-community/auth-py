@@ -3,12 +3,11 @@ This page lists all active maintainers of this repository. If you were a maintai
 See CONTRIBUTING.md for general contribution guidelines.
 
 # Maintainers (in alphabetical order)
-
-- [anand2312](https://github.com/anand2312)
-- [dreinon](https://github.com/dreinon)
+- [olirice](https://github.com/olirice)
 - [J0](https://github.com/J0)
-- [leynier](https://github.com/leynier)
 
 # Emeritus Maintainers (in alphabetical order)
-
+- [leynier](https://github.com/leynier)
+- [anand2312](https://github.com/anand2312)
+- [dreinon](https://github.com/dreinon)
 - [fedden](https://github.com/fedden)
