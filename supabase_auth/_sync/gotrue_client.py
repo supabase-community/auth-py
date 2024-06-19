@@ -61,6 +61,7 @@ from ..types import (
     Options,
     Provider,
     Session,
+    SignInAnonymouslyCredentials,
     SignInWithOAuthCredentials,
     SignInWithPasswordCredentials,
     SignInWithPasswordlessCredentials,
@@ -148,6 +149,36 @@ class SyncGoTrueClient(SyncGoTrueBaseAPI):
             raise e
 
     # Public methods
+
+    def sign_in_anonymously(
+        self, credentials: Union[SignInAnonymouslyCredentials, None] = None
+    ) -> AuthResponse:
+        """
+        Creates a new anonymous user.
+        """
+        self._remove_session()
+        if credentials is None:
+            credentials = {"options": {}}
+        options = credentials.get("options", {})
+        data = options.get("data") or {}
+        captcha_token = options.get("captcha_token")
+
+        response = self._request(
+            "POST",
+            "signup",
+            body={
+                "data": data,
+                "gotrue_meta_security": {
+                    "captcha_token": captcha_token,
+                },
+            },
+            xform=parse_auth_response,
+        )
+
+        if response.session:
+            self._save_session(response.session)
+            self._notify_all_subscribers("SIGNED_IN", response.session)
+        return response
 
     def sign_up(
         self,

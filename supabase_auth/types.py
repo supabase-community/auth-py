@@ -268,6 +268,17 @@ class SignUpWithPhoneAndPasswordCredentials(TypedDict):
     options: NotRequired[SignUpWithPhoneAndPasswordCredentialsOptions]
 
 
+class SignInAnonymouslyCredentialsOptions(TypedDict):
+    data: NotRequired[Any]
+    captcha_token: NotRequired[str]
+
+
+class SignInAnonymouslyCredentials(
+    TypedDict,
+):
+    options: NotRequired[SignInAnonymouslyCredentialsOptions]
+
+
 SignUpWithPasswordCredentials = Union[
     SignUpWithEmailAndPasswordCredentials,
     SignUpWithPhoneAndPasswordCredentials,
