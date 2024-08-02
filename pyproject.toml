@@ -34,6 +34,7 @@ python-semantic-release = "^9.8.6"
 
 [tool.poetry.group.dev.dependencies]
 pygithub = ">=1.57,<3.0"
+respx = ">=0.20.2,<0.22.0"
 
 [tool.semantic_release]
 version_variables = ["supabase_auth/__init__.py:__version__"]
